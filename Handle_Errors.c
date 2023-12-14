@@ -95,21 +95,22 @@ void More_Errors(int error_code, ...)
  */
 void Errors_Strings(int error_code, ...)
 {
-    va_list ag;
-    int L_Nums;
+	va_list ag;
+	int l_num;
 
-    va_start(ag, error_code);
-    L_Nums = va_arg(ag, int);
-    switch (error_code)
-    {
-    case 10:
-        fprintf(stderr, "L%d: can't pchar, value out of range\n", L_Nums);
-        break;
-    case 11:
-        fprintf(stderr, "L%d: can't pchar, stack empty\n", L_Nums);
-        break;
-        L_Nums default : break;
-    }
-    free_nodes();
-    exit(EXIT_FAILURE);
+	va_start(ag, error_code);
+	l_num = va_arg(ag, int);
+	switch (error_code)
+	{
+		case 10:
+			fprintf(stderr, "L%d: can't pchar, value out of range\n", l_num);
+			break;
+		case 11:
+			fprintf(stderr, "L%d: can't pchar, stack empty\n", l_num);
+			break;
+		default:
+			break;
+	}
+	free_nodes();
+	exit(EXIT_FAILURE);
 }

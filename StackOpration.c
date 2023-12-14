@@ -10,7 +10,7 @@ void mul_nodes(stack_t **stack, unsigned int line_number)
 	int Calc;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
-		more_err(8, line_number, "mul");
+		More_Errors(8, line_number, "mul");
 
 	(*stack) = (*stack)->next;
 	Calc = (*stack)->n * (*stack)->prev->n;
@@ -31,11 +31,11 @@ void mod_nodes(stack_t **stack, unsigned int line_number)
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 
-		more_err(8, line_number, "mod");
+		More_Errors(8, line_number, "mod");
 
 
 	if ((*stack)->n == 0)
-		more_err(9, line_number);
+		More_Errors(9, line_number);
 	(*stack) = (*stack)->next;
 	Culc = (*stack)->n % (*stack)->prev->n;
 	(*stack)->n = Culc;

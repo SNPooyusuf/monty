@@ -38,11 +38,11 @@ void print_char(stack_t **stack, unsigned int line_number)
 	int ASCii;
 
 	if (stack == NULL || *stack == NULL)
-		string_err(11, line_number);
+		Errors_Strings(11, line_number);
 
 	ASCii = (*stack)->n;
 	if (ASCii < 0 || ASCii > 127)
-		string_err(10, line_number);
+		Errors_Strings(10, line_number);
 	printf("%c\n", ASCii);
 }
 

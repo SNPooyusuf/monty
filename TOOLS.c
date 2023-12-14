@@ -11,7 +11,7 @@ void open_file(char *file_name)
 	FILE *fd = fopen(file_name, "r");
 
 	if (file_name == NULL || fd == NULL)
-		err(2, file_name);
+		Errors(2, file_name);
 
 	read_file(fd);
 	fclose(fd);
@@ -52,7 +52,7 @@ int parse_line(char *buffer, int line_number, int format)
 	const char *del = "\n ";
 
 	if (buffer == NULL)
-		err(4);
+		Errors(4);
 
 	opcode = strtok(buffer, del);
 	if (opcode == NULL)
@@ -92,11 +92,11 @@ void call_fun(op_func func, char *op, char *value, int ln, int format)
 			flag = -1;
 		}
 		if (value == NULL)
-			err(5, ln);
+			Errors(5, ln);
 		for (x = 0; value[x] != '\0'; x++)
 		{
 			if (isdigit(value[x]) == 0)
-				err(5, ln);
+				Errors(5, ln);
 		}
 		node = create_node(atoi(value) * flag);
 		if (format == 0)
@@ -153,5 +153,5 @@ void find_func(char *opcode, char *value, int ln, int format)
 		}
 	}
 	if (flag == 1)
-		err(3, ln, opcode);
+		Errors(3, ln, opcode);
 }
